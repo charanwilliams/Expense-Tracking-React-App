@@ -26,6 +26,7 @@ const App = () => {
 
   return (
     <div className="bg-sky-950 h-screen">
+      <div className="w-[85%] font-bold font-serif text-white text-6xl mx-auto mb-8"><h1>Good Day. ⋆⁺₊⋆ ☀︎ ⋆⁺₊⋆</h1></div>
       <NewExpense />
       <Expenses expenses={expenses} />
     </div>

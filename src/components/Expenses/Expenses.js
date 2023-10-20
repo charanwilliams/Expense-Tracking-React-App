@@ -1,10 +1,12 @@
 import Card from "../UI/Card";
 import ExpenseItem from "./ExpenseItem";
+import ExpenseFilter from "../NewExpense/ExpenseFilter";
 
 const Expenses = (props) => {
   const expenses = props.expenses;
   return (
     <Card className="lg:max-w-[85%] p-4 bg-gradient-to-tl from-sky-300 my-8 mx-auto border-1 rounded-xl text-center shadow-lg">
+      <ExpenseFilter />
       <ExpenseItem
         title={expenses[0].title}
         amount={expenses[0].amount}
