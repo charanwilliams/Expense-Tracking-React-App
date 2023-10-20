@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   const [userInput, setUserInput] = useState({
     enteredTitle: "",
     enteredAmount: "",
@@ -21,13 +21,13 @@ const ExpenseForm = () => {
     setUserInput((prevState) => {
       return {
         ...prevState,
-        enteredDate: new Date(event.target.value).toString(),
+        enteredDate: event.target.value,
       };
     });
   };
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(userInput);
+    props.onSaveExpenseData(userInput);
     setUserInput({
       enteredTitle: "",
       enteredAmount: "",
@@ -65,7 +65,7 @@ const ExpenseForm = () => {
           type="date"
           value={userInput.enteredDate}
           min="2023-01-01"
-          max={new Date().getDate.toString()}
+          max="2023-10-3"
           onChange={dateChangeHandler}
           className="p-2 rounded-md border-s-[#ccc] w-80 max-width-[100%]"
         />
