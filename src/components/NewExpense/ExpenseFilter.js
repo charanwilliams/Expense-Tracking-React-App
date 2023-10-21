@@ -1,12 +1,20 @@
 import React from "react";
 
-const ExpensesFilter = () => {
+const ExpensesFilter = (props) => {
+
+  
+
+  const selectHandler = (event) => {
+    const selectedYear=event.target.value;
+    props.onSelectYear(selectedYear)
+  }
+  
   return (
     <div className="flex items-center justify-end  py-0 px-1">
       <label className="flex-shrink text-white font-bold mb-2">
         Filter by year
       </label>
-      <select className="flex-shrink py-2 px-4 rounded-md ml-4 bg-white">
+      <select onChange={selectHandler} className="flex-shrink py-2 px-4 rounded-md ml-4 bg-white">
         <option className="bg-white" value="2023">
           2023
         </option>
