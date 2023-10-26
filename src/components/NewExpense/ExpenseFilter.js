@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
 
 const ExpensesFilter = (props) => {
-  
   const selectHandler = (event) => {
-    const filterYear=event.target.value;
+    const filterYear = event.target.value;
     props.onSelectYear(filterYear);
   };
 
@@ -16,6 +15,9 @@ const ExpensesFilter = (props) => {
         onChange={selectHandler}
         className="flex-shrink py-2 px-4 rounded-md ml-4 bg-white"
       >
+        <option className="bg-white" value=""how >
+          All
+        </option>
         <option className="bg-white" value="2023">
           2023
         </option>
