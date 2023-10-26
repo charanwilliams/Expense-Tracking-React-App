@@ -11,7 +11,6 @@ const Expenses = (props) => {
   };
 
   const filterByDate = (expense) => {
-    console.log(filterYear);
     if (filterYear === "") {
       return true;
     } else {
@@ -20,18 +19,26 @@ const Expenses = (props) => {
       return expenseYear === filterYearDate;
     }
   };
-  
+
+  const filteredExpenses = expenses.filter(filterByDate);
+
   return (
     <div className="lg:max-w-[85%] p-4 bg-gradient-to-tl from-sky-300 my-8 mx-auto border-1 rounded-xl text-center shadow-lg">
       <ExpenseFilter onSelectYear={filterHandler} />
-      {expenses.filter(filterByDate).map((expense) => (
-        <ExpenseItem
-          key={expense.id}
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date}
-        />
-      ))}
+      {filteredExpenses.length === 0 ? (
+        <p className="text-white font-bold text-3xl p-8">
+          No expenses found for selected year...
+        </p>
+      ) : (
+        filteredExpenses.map((expense) => (
+          <ExpenseItem
+            key={expense.id}
+            title={expense.title}
+            amount={expense.amount}
+            date={expense.date}
+          />
+        ))
+      )}
     </div>
   );
 };
